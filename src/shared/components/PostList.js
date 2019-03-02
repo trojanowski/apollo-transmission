@@ -52,14 +52,13 @@ export default class PostList extends React.Component {
       <Fragment>
         <div>{posts && posts.nodes.map(this.renderPost)}</div>
         {loading && <Spinner />}
-        {posts &&
-          posts.pageInfo.hasNextPage && (
-            <Waypoint
-              key={posts.pageInfo.cursor}
-              onEnter={this.handleLoadMore}
-              bottomOffset="-400px"
-            />
-          )}
+        {posts && posts.pageInfo.hasNextPage && (
+          <Waypoint
+            key={posts.pageInfo.cursor}
+            onEnter={this.handleLoadMore}
+            bottomOffset="-400px"
+          />
+        )}
       </Fragment>
     );
   }

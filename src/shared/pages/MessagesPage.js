@@ -25,14 +25,13 @@ class MessagesPage extends React.Component {
       <div>
         <h1>Private messages</h1>
         <div>{messages.nodes.map(this.renderMessage)}</div>
-        {messages.pageInfo.hasNextPage &&
-          !loading && (
-            <Waypoint
-              key={messages.pageInfo.cursor}
-              onEnter={loadMore}
-              bottomOffset="-400px"
-            />
-          )}
+        {messages.pageInfo.hasNextPage && !loading && (
+          <Waypoint
+            key={messages.pageInfo.cursor}
+            onEnter={loadMore}
+            bottomOffset="-400px"
+          />
+        )}
       </div>
     );
   }
