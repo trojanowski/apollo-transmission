@@ -30,6 +30,11 @@ const POSTS_ES_SCHEMA = {
 
   const bulkOperations = [];
   const posts = await knex(POSTS_TABLE).select('*');
+
+  if (!posts.length) {
+    process.exit(0);
+  }
+
   for (const post of posts) {
     bulkOperations.push(
       { index: { _index: POSTS_INDEX, _type: POSTS_INDEX, _id: post.id } },

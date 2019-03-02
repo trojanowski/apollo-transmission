@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Waypoint from 'react-waypoint';
+import { Waypoint } from 'react-waypoint';
 import gql from 'graphql-tag';
 import produce from 'immer';
 

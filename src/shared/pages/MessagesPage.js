@@ -1,7 +1,7 @@
 import Composer from 'react-composer';
 import { Mutation, Query } from 'react-apollo';
 import React from 'react';
-import Waypoint from 'react-waypoint';
+import { Waypoint } from 'react-waypoint';
 import gql from 'graphql-tag';
 
 import Message from '../components/Message';
