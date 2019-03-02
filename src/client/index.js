@@ -6,7 +6,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { WebSocketLink } from 'apollo-link-ws';
-import { BatchHttpLink } from "apollo-link-batch-http";
+import { BatchHttpLink } from 'apollo-link-batch-http';
 import { getMainDefinition, toIdValue } from 'apollo-utilities';
 import { withClientState } from 'apollo-link-state';
 

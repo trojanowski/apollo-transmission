@@ -1,15 +1,15 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
         "node": "current"
       }
     }],
-    "react"
+    "@babel/preset-react"
   ],
   "plugins": [
-    "syntax-async-generators",
-    "transform-class-properties",
-    "transform-object-rest-spread"
+    "@babel/plugin-syntax-async-generators",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }

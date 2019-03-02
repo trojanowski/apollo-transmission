@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import Input from './Input';
 import Message from './Message';
 import postSchema from '../validation/postSchema';
-import { sendMessageUpdater } from '../utils/updaters'
+import { sendMessageUpdater } from '../utils/updaters';
 
 class PrivateMessageDialog extends React.Component {
   state = { messageSent: false };

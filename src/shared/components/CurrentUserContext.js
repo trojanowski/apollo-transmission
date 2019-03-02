@@ -5,15 +5,15 @@ const CurrentUserContext = React.createContext();
 export const CurrentUserConsumer = CurrentUserContext.Consumer;
 
 export class CurrentUserProvider extends React.PureComponent {
-  isCurrentUser = (other) => {
+  isCurrentUser = other => {
     const { currentUser, loading } = this.prop;
 
     if (loading) {
       return false;
     }
 
-    return currentUser.id === other.id
-  }
+    return currentUser.id === other.id;
+  };
 
   render() {
     return (
@@ -29,4 +29,3 @@ export class CurrentUserProvider extends React.PureComponent {
     );
   }
 }
-

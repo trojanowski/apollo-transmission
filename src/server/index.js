@@ -5,10 +5,6 @@ import Cookies from 'cookies';
 import Koa from 'koa';
 import KoaRouter from 'koa-router';
 import { PubSub } from 'graphql-subscriptions';
-import camelcaseKeys from 'camelcase-keys';
-import decamelize from 'decamelize';
-import { isObjectLike } from 'lodash';
-import knexLib from 'knex';
 import koaBody from 'koa-bodyparser';
 import koaLogger from 'koa-logger';
 import koaSession from 'koa-session';
@@ -20,8 +16,8 @@ import SqlConnector from './connectors/SqlConnector';
 import * as authUtils from './utils/auth';
 import csrf from './middlewares/csrf';
 import createEsClient from './utils/createEsClient';
+import createKnex from './utils/createKnex';
 import isAllowedOrigin from './utils/isAllowedOrigin';
-import knexFile from './knexfile';
 import schema from './schema';
 import serverRender from './handlers/serverRender';
 import yupToFormErrors from './utils/yupToFormErrors';
@@ -34,31 +30,8 @@ app.keys = ['some-secret'];
 
 const router = new KoaRouter();
 
-function camelcaseRow(row) {
-  if (isObjectLike(row)) {
-    return camelcaseKeys(row);
-  }
-  return row;
-}
-
 const esClient = createEsClient();
-
-const knex = knexLib({
-  ...knexFile[process.env.NODE_ENV || 'development'],
-  asyncStackTraces: !IS_PRODUCTION,
-  postProcessResponse(result) {
-    if (Array.isArray(result)) {
-      return result.map(row => {
-        return camelcaseRow(row);
-      });
-    }
-    return camelcaseRow(result);
-  },
-  wrapIdentifier(value, origImpl) {
-    return origImpl(decamelize(value));
-  },
-});
-
+const knex = createKnex();
 const pubsub = new PubSub();
 
 async function createGraphqlContext(userId) {
