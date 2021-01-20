@@ -42,7 +42,7 @@
     "graphql-tag": "^2.10.1",
     "graphql-tools": "^4.0.4",
     "gravatar-url": "^2.0.0",
-    "immer": "^2.1.0",
+    "immer": "^8.0.1",
     "knex": "^0.16.3",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
