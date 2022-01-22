@@ -93,7 +93,7 @@
     "eslint-plugin-react": "^7.11.1",
     "http-proxy-middleware": "^0.19.1",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^3.1.1",
     "nodemon": "^1.18.10",
     "prettier": "1.16.4",
     "react-scripts": "^2.1.5"
